@@ -16,6 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="lightingLED.ino" />
+    <None Include="..\README.md">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
- 
 </Project>
