@@ -43,6 +43,7 @@ void all_off(){
   for(int i = 4; i <= 7; ++i){
     digitalWrite(i, LOW);
   }
+  delay(100);
 }
 
 void dededen(int x = 7){
