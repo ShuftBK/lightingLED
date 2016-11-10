@@ -25,6 +25,7 @@ void sensorDataInit(){
 
 void setup(){
   Serial.begin(9600);//シリアルポートの通信速度を9600bpsに設定  
+  SignalSerial.begin(9600);
   pinMode(4, OUTPUT); // small
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
@@ -51,8 +52,8 @@ void loop(){
     case 'C':
       if(get_data())
         combination();
-      else
-        combination2();
+     // else
+       // combination2();
       break;
     default:
       break;
@@ -173,12 +174,12 @@ bool get_word(){//モード命令(シリアルデータ)を取得する為の関
 }
 
 bool get_data(){
-  if(SignalSerial.available() >= sizeof(byte)+sizeof(int)){
-    Serial.println("get_data");
+  if(SignalSerial.available() >= sizeof(byte)+sizeof(int))
+
   if(SignalSerial.read()=='H'){
     data_1 = SignalSerial.read();
     data_2 = SignalSerial.read();
-    
+    Serial.println("get_data");
     int id = bitRead(data_1,4);
     
     sensorData[id].pulse = bitRead(data_1,1);
@@ -190,6 +191,6 @@ bool get_data(){
     
     return true;
   }
-  }
+  
   return false;
 }
